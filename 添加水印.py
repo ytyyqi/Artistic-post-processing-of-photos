@@ -28,6 +28,24 @@ def add_watermark(original_path, i, ii):
         "dark": r"C:\Users\yyq09\Pictures\水印 - 白.png"  # 暗背景用白水印
     }
 
+    if os.path.exists(WATERMARKS["light"]) and os.path.exists(WATERMARKS["light"]):
+        pass
+    else:
+        print('水印文件不存在，重新设置水印参数')
+        print('水印是否分为黑白两种？ Yes or No')
+        water_num = 1 if input().upper() == 'NO' else 2
+        if water_num == 2:
+            print('输入白色水印文件路径：')
+            WATERMARKS["light"] = input()
+            print('输入黑色水印文件路径：')
+            WATERMARKS["dark"] = input()
+        elif water_num == 1:
+            print('输入水印文件路径：')
+            s_temp = input()
+            WATERMARKS["light"], WATERMARKS["dark"] = s_temp, s_temp
+        else:
+            pass
+
     # 打开原始图片
     with Image.open(original_path) as img:
         original_format = img.format  # 保留原始格式信息
