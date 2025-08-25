@@ -4,8 +4,6 @@ import glob
 from numpy.core.defchararray import upper
 
 
-
-
 def small_size(original_path, i, ii):
     # 创建输出目录
     original_dir = os.path.dirname(original_path)
@@ -15,7 +13,6 @@ def small_size(original_path, i, ii):
     # 生成输出路径
     file_name = os.path.basename(original_path)
     output_path = os.path.join(output_dir, file_name)
-
 
     # 打开原始图片
     with Image.open(original_path) as img:
@@ -28,8 +25,6 @@ def small_size(original_path, i, ii):
             save_params = img.info.copy()
 
             # 保存结果（保持原始格式）
-            # output_path = f"{os.path.splitext(original_path)[0]}_添加水印{os.path.splitext(original_path)[1]}"
-            # 修改保存部分
             original.convert(img.mode).save(
                 output_path,
                 format=original_format,

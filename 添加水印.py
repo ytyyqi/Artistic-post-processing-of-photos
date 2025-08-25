@@ -2,6 +2,8 @@ from PIL import Image
 import os
 import glob
 
+from numpy.core.defchararray import upper
+
 
 # from rich.progress import Progress
 
